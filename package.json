@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "watch:server": "nodemon app.js",
-    "watch:sass": "node-sass front/main.sass front/css/style.css -w",
+    "watch:sass": "node-sass front/sass/main.scss front/css/style.css -w",
     "liveServer": "live-server",
-    "front:start": "npm-run-all --parrallel watch:sass liveServer",
+    "front:start": "npm-run-all --parallel watch:sass liveServer",
     "compile:sass": "node-sass front/main.scss front/css/style.comp.css",
     "prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" front/css/style.comp.css -o front/css/style.prefix.css",
     "compress:css": "node-sass front/css/style.prefix.css front/css/style.css --output-style compressed",

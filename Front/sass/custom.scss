@@ -1,0 +1,41 @@
+#navigation .navbar-search {
+  position: relative !important;
+}
+.search-form {
+  position: absolute;
+  z-index: 99;
+}
+.container .navbar-nav .nav-user {
+  &:hover {
+    cursor: pointer;
+    background: rgba(#6c757d, 0.1) !important;
+  }
+}
+
+#mainContent .container .sidebar-custom {
+  color: #000;
+  text-decoration: none;
+  &:hover {
+    background: rgba(#6c757d, 0.1);
+  }
+}
+
+#mainContent .container .sidebar-active {
+  background: rgba(#6c757d, 0.1);
+}
+
+#mainContent .up-control {
+  background: rgba(#000, 0.5);
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.2s;
+  &:hover {
+    height: 55px;
+    width: 55px;
+  }
+}

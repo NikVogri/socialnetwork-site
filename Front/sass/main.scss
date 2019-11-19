@@ -1,3 +1,4 @@
 // START HERE
 // Currently importing ALL of bootstrap - CHANGE THIS TO PARTS!
-@import "node_modules/bootstrap/scss/bootstrap";
+@import 'custom.scss';
+@import 'node_modules/bootstrap/scss/bootstrap';
