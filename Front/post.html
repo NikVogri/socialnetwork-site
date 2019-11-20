@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css"
+      integrity="sha256-HAaDW5o2+LelybUhfuk0Zh2Vdk8Y2W2UeKmbaXhalfA="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Memetor | Homepage</title>
+  </head>
+
+  <body>
+    <!--START HERE-->
+    <nav
+      id="#navigation"
+      class="navbar navbar-expand navbar-dark bg-dark custom-search"
+    >
+      <div class="container">
+        <a href="/" class="navbar-brand"
+          ><strong class="h2 p-0 m-0">Memetor</strong></a
+        >
+        <!-- IF USER NOT LOGGED IN  -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link px-5"
+              ><i class="fas fa-dice "></i> Random Post</a
+            >
+          </li>
+          <li class="nav-item px-2">
+            <a href="#" class="nav-link navbar-search"
+              ><i class="fas fa-search"></i> Search</a
+            >
+            <form action="#" class="ml-auto search-form d-none">
+              <input type="text" class="form-control" placeholder="Search..." />
+            </form>
+          </li>
+          <li class="nav-item">
+            <a
+              href="#"
+              class="nav-link"
+              data-toggle="modal"
+              data-target="#loginModal"
+              ><i class="fas fa-user"></i> Login</a
+            >
+          </li>
+          <li class="nav-item">
+            <button
+              class="btn btn-primary btn-sm mt-1 mx-2"
+              data-toggle="modal"
+              type="button"
+              data-target="#registerModal"
+            >
+              Register
+            </button>
+          </li>
+        </ul>
+        <!-- IF USER LOGGED IN -->
+        <!-- <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link"
+              ><i class="fas fa-dice "></i> Random Post</a
+            >
+          </li>
+          <li class="nav-item px-2">
+            <a href="#" class="nav-link navbar-search"
+              ><i class="fas fa-search"></i> Search</a
+            >
+            <form action="#" class="ml-auto search-form d-none">
+              <input type="text" class="form-control" placeholder="Search..." />
+            </form>
+          </li>
+          <li
+            class="nav-item nav-user rounded dropdown "
+            data-toggle="dropdown"
+          >
+            <img
+              src="./img/User_default.svg"
+              alt="User default image"
+              class="user-image d-inline-block"
+              style="height: 30px; width: 30px;"
+            />
+            <a href="#" class="nav-link d-inline-block dropdown-toggle p-0 py-2"
+              >Nickolas</a
+            >
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item py-2">Profile</a>
+              <a href="#" class="dropdown-item py-2">Settings</a>
+              <a href="#" class="dropdown-item py-2">Logout</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-primary btn-sm mt-1 ml-3">
+              <i class="fas fa-plus fa-sm"></i> New Post
+            </button>
+          </li>
+        </ul> -->
+      </div>
+    </nav>
+    <!--MAIN START-->
+    <section id="mainContent">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 p-3">
+            <a
+              href="#"
+              class="d-block sidebar-custom py-2 pl-2 lead sidebar-active"
+            >
+              <i class="fas fa-fire"></i> <strong>Top</strong></a
+            >
+            <a href="#" class="d-block sidebar-custom py-2 pl-2 lead ">
+              <i class="fas fa-clock"></i> <strong>New</strong></a
+            >
+            <p class="d-block pl-2 py-2 text-secondary m-0">
+              <strong><strong>Categories</strong></strong>
+            </p>
+            <a
+              href="#"
+              class="d-block sidebar-custom py-2 pl-2 lead text-muted"
+            >
+              <i class="fas fa-laugh"></i> <strong>Comedy</strong></a
+            >
+            <a
+              href="#"
+              class="d-block sidebar-custom py-2 pl-2 lead text-muted"
+            >
+              <i class="fas fa-surprise"></i> <strong>WTF</strong></a
+            >
+            <a
+              href="#"
+              class="d-block sidebar-custom py-2 pl-2 lead text-muted"
+            >
+              <i class="fas fa-gamepad"></i> <strong>Gaming</strong></a
+            >
+            <a
+              href="#"
+              class="d-block sidebar-custom py-2 pl-2 lead text-muted"
+            >
+              <i class="fas fa-hippo"></i> <strong>Animals</strong></a
+            >
+            <a
+              href="#"
+              class="d-block sidebar-custom py-2 pl-2 lead text-muted"
+            >
+              <i class="fas fa-music"></i> <strong>Music</strong></a
+            >
+            <a
+              href="#"
+              class="d-block sidebar-custom py-2 pl-2 lead text-muted"
+            >
+              <i class="fas fa-kiss-wink-heart"></i> <strong>NSFW</strong></a
+            >
+            <p class="d-block pl-2 py-2 text-secondary m-0">
+              <strong><strong>Sections</strong></strong>
+            </p>
+            <a
+              href="#"
+              class="d-block sidebar-custom py-2 pl-2 active lead text-muted"
+            >
+              <i class="fas fa-image"></i> <strong>Wallpaper</strong></a
+            >
+            <a
+              href="#"
+              class="d-block sidebar-custom py-2 pl-2 active lead text-muted"
+            >
+              <i class="fas fa-futbol"></i> <strong>Football</strong></a
+            >
+            <a
+              href="#"
+              class="d-block sidebar-custom py-2 pl-2 active lead text-muted"
+            >
+              <i class="fas fa-play-circle"></i> <strong>GIF</strong></a
+            >
+            <a
+              href="#"
+              class="d-block sidebar-custom py-2 pl-2 active lead text-muted"
+            >
+              <i class="fas fa-surprise"></i> <strong>Horror</strong></a
+            >
+            <a
+              href="#"
+              class="d-block sidebar-custom py-2 pl-2 active lead text-muted "
+            >
+              <i class="fas fa-landmark"></i> <strong>History</strong></a
+            >
+            <a
+              href="#"
+              class="d-block sidebar-custom py-2 pl-2 active lead text-muted "
+            >
+              <i class="fas fa-film"></i> <strong>Movie</strong></a
+            >
+            <a
+              href="#"
+              class="d-block sidebar-custom py-2 pl-2 active lead text-muted"
+            >
+              <i class="fas fa-briefcase"></i> <strong>DIY</strong></a
+            >
+          </div>
+          <div class="col-md-9 p-3">
+            <div class="card mb-5">
+              <div class="card-body">
+                <p class="text-muted m-1">
+                  <i class="fas fa-gamepad mr-2 d-inline"></i>Gaming
+                  <span class="text-dark"> 3h </span>
+                </p>
+                <a href="#">
+                  <h3 class="p-0 text-dark">
+                    <strong
+                      >This is my best game of League Of Legends Yet!</strong
+                    >
+                  </h3>
+                </a>
+                <p class="text-primary mb-2">
+                  <strong>League Gameplay Lol score first post </strong>
+                </p>
+                <div class="rating d-block mb-2">
+                  <ul class=" list-unstyled d-block">
+                    <li class="d-inline mr-2">432 Comments</li>
+                    <li class="d-inline">32 Likes</li>
+                  </ul>
+                  <button class="btn btn-outline-secondary px-4">
+                    <i class="fas fa-thumbs-up"></i>
+                  </button>
+                  <button class="btn btn-outline-secondary px-4 mx-2">
+                    <i class="fas fa-thumbs-down"></i>
+                  </button>
+                  <button class="btn btn-danger px-4">
+                    Report
+                  </button>
+                </div>
+                <a href="./img/53T8668.png" data-toggle="lightbox">
+                  <img
+                    src="./img/53T8668.png"
+                    alt="main-post-image"
+                    class="img-fluid"
+                  />
+                </a>
+              </div>
+              <ul class="list-unstyled d-block d-flex justify-content-end ml-3">
+                <li class="d-inline mr-3">
+                  <a
+                    href="#"
+                    class="comments-active-head comments-head  comments-head1"
+                  >
+                    <i class="fas fa-fire fa-sm "></i>Top</a
+                  >
+                </li>
+                <li class="d-inline mr-2">
+                  <a href="#" class="comments-head comments-head2">
+                    <i class="fas fa-clock"></i> New</a
+                  >
+                </li>
+              </ul>
+              <hr class="my-1 mx-2" />
+              <div class="row mt-3 d-flex justify-content-center">
+                <div class="col-1">
+                  <img
+                    src="./img/User_default.svg"
+                    alt="user image"
+                    style="height: 50px; width: 50px;"
+                    class="rounded-circle"
+                  />
+                </div>
+                <div class="col-10 border">
+                  <form action="#">
+                      <textarea name="" id="" class="comment-text mt-3" rows="4" resize placeholder="Enter comment..."></textarea>
+                      <button class="btn btn-primary float-right mb-2">Comment</button>
+                    </form>
+                </div>
+                </div>
+                <div id="UserComments">
+                  <div class="container">
+                  <div class="row  p-4" id=#comment>
+                    <div class="col-1">
+                      <img src="./img/User_default.svg" alt="user image" style="height: 50px; width: 50px;" class="rounded-circle" />         
+                      </div>
+                      <div class="col-10">
+                        <div>
+                          <p class="m-0"><strong>Nickolas <span class="text-muted"><small>1544 Upvotes</small></span> <span class="text-muted"><small>3h ago</small></span></strong></p>
+                          <p class="m-0">An amazing achievement indeed! If you ever need someone to play with I'm here!</p>
+                          <div class="commentRating d-flex mt-1 ">
+                            <a href="#" class="text-dark"><i class="fas fa-thumbs-up mr-4"></i></a>
+                            <a href="#" class="text-dark"><i class="fas fa-thumbs-down"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="goUp">
+        <a
+          href="#mainContent"
+          class="fixed-bottom up-control rounded-circle m-5 ml-auto"
+        >
+          <i class="fas fa-arrow-up fa-lg"></i>
+        </a>
+      </div>
+    </section>
+    <!--END HERE-->
+    <script
+      src="https://kit.fontawesome.com/2046538412.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"
+      integrity="sha256-Y1rRlwTzT5K5hhCBfAFWABD4cU13QGuRN6P5apfWzVs="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $('.navbar-search').on('click', function() {
+        $('.search-form').toggleClass('d-none');
+      });
+      $('.search-form').on('focusout', function() {
+        $('.search-form').addClass('d-none');
+      });
+      $('.comments-head1').on('click', function(e) {
+        e.preventDefault();
+        $('.comments-head1').addClass('comments-active-head');
+        $('.comments-head2').removeClass('comments-active-head');
+        console.log('jere');
+      });
+      $('.comments-head2').on('click', function(e) {
+        e.preventDefault();
+        $('.comments-head2').addClass('comments-active-head');
+        $('.comments-head1').removeClass('comments-active-head');
+      });
+      $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+      });
+    </script>
+  </body>
+</html>

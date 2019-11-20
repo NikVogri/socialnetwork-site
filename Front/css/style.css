@@ -32,6 +32,45 @@
     height: 55px;
     width: 55px; }
 
+.comments-head:hover {
+  text-decoration: none !important; }
+
+.comments-active-head {
+  position: relative; }
+  .comments-active-head::before {
+    content: '';
+    height: 2px;
+    width: 50px;
+    background: #007bff;
+    position: absolute;
+    bottom: -23px;
+    left: 50%;
+    transform: translatex(-50%); }
+
+.comment-text {
+  width: 100%;
+  resize: none; }
+
+.profileSelection {
+  position: relative; }
+  .profileSelection::before {
+    content: '';
+    height: 2px;
+    width: 50px;
+    background: #007bff;
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translatex(-50%);
+    z-index: 99; }
+
+.settingsActive {
+  background: rgba(0, 123, 255, 0.8);
+  color: #fff !important; }
+
+.linkHover {
+  cursor: pointer; }
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
