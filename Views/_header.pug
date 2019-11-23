@@ -1,0 +1,49 @@
+// START HERE
+--console.log(user)
+nav.navbar.navbar-expand.navbar-dark.bg-dark.custom-search(id='#navigation')
+  .container
+    a.navbar-brand(href='/')
+      strong.h2.p-0.m-0 Memetor
+    if !user
+      ul.navbar-nav.ml-auto
+        li.nav-item
+          a.nav-link.px-5(href='#')
+            i.fas.fa-dice
+            |  Random Post
+        li.nav-item.px-2
+          a.nav-link.navbar-search(href='#')
+            i.fas.fa-search
+            |  Search
+          form.ml-auto.search-form.d-none(action='#')
+            input.form-control(type='text' placeholder='Search...')
+        li.nav-item
+          a.nav-link(href='#' data-toggle='modal' data-target='#loginModal')
+            i.fas.fa-user
+            |  Login
+        li.nav-item
+          button.btn.btn-primary.btn-sm.mt-1.mx-2(data-toggle='modal' type='button' data-target='#registerModal')
+            | Register
+    else
+      ul.navbar-nav.ml-auto
+        li.nav-item
+          a.nav-link(href='#')
+            i.fas.fa-dice
+            |  Random Post
+        li.nav-item.px-2
+          a.nav-link.navbar-search(href='#')
+            i.fas.fa-search
+            |  Search
+          --console.log(user.imagePath);
+          form.ml-auto.search-form.d-none(action='#')
+            input.form-control(type='text' placeholder='Search...')
+        li.nav-item.nav-user.rounded.dropdown
+          img.user-image.d-inline-block(src=`./img/User_default.svg` alt='user image' style='height: 30px; width: 30px;')
+          a.nav-link.d-inline-block.dropdown-toggle.p-0.py-2(href='#' data-toggle="dropdown") #{user.displayName}
+          .dropdown-menu
+            a.dropdown-item.py-2(href='/weokewkowe') Profile
+            a.dropdown-item.py-2(href='/sadsad') Settings
+            a.dropdown-item.py-2(href="/logout") Logout
+        li.nav-item
+          button.btn.btn-primary.btn-sm.mt-1.ml-3
+            i.fas.fa-plus.fa-sm
+            |  New Post

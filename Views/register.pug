@@ -57,48 +57,46 @@ block content
             i.fas.fa-briefcase
             strong  DIY
         .col-md-9.p-3
-          .card.mb-5
-            .card-body
-              p.text-muted.m-1
-                i.fas.fa-gamepad.mr-2.d-inline
-                | Gaming
-                span.text-dark  3h 
-              a(href='#')
-                h3.p-0.text-dark
-                  strong This is my best game of League Of Legends Yet!
-              a(href='http://www.google.si')
-                img.img-fluid(src='./img/53T8668.png' alt='')
-              .rating.d-block.mt-4
-                button.btn.btn-outline-secondary.px-4
-                  i.fas.fa-thumbs-up
-                button.btn.btn-outline-secondary.px-4.mx-2
-                  i.fas.fa-thumbs-down
-                button.btn.btn-outline-secondary.px-4
-                  i.fas.fa-comment
-                ul.style-none.float-right.list-unstyled.d-inline-block.mt-2
-                  li.d-inline.mr-2 432 Comments
-                  li.d-inline 32 Likes
-          .card.mb-5
-            .card-body
-              p.text-muted.m-1
-                i.fas.fa-gamepad.mr-2.d-inline
-                | Gaming
-                span.text-dark  3h 
-              a(href='#')
-                h3.p-0.text-dark
-                  strong This is my best game of League Of Legends Yet!
-              a(href='http://www.google.si')
-                img.img-fluid(src='./img/53T8668.png' alt='')
-              .rating.d-block.mt-4
-                button.btn.btn-outline-secondary.px-4
-                  i.fas.fa-thumbs-up
-                button.btn.btn-outline-secondary.px-4.mx-2
-                  i.fas.fa-thumbs-down
-                button.btn.btn-outline-secondary.px-4
-                  i.fas.fa-comment
-                ul.style-none.float-right.list-unstyled.d-inline-block.mt-2
-                  li.d-inline.mr-2 432 Comments
-                  li.d-inline 32 Likes
-    .goUp
-      a.fixed-bottom.up-control.rounded-circle.m-5.ml-auto(href='#mainContent')
-        i.fas.fa-arrow-up.fa-lg
+          #registerPage.card
+            .card
+              .card-header.p-3
+                h4.card-title.d-block Register
+              .card-body
+                include _message
+                form(action="/register" method="post")
+                  .form-group
+                    label(for='text') Nickname
+                    .input-group
+                      .input-group-prepend
+                        span.input-group-text
+                          i.fas.fa-signature
+                      input.form-control(type='text' name="nickname" placeholder='Nickname...' maxlength='30')
+                    small.text-muted Nickname can only be 30 or less characters long!
+                  .form-group
+                    label(for='Email') Email
+                    .input-group
+                      .input-group-prepend
+                        span.input-group-text
+                          i.fas.fa-envelope
+                      input.form-control(type='email' name="email" placeholder='Email address...')
+                  .form-group
+                    label(for='password') Password
+                    .input-group
+                      .input-group-prepend
+                        span.input-group-text
+                          i.fas.fa-key
+                      input.form-control(type='password' name="password" placeholder='*******')
+                  .form-group
+                    label(for='password') Confirm password
+                    .input-group
+                      .input-group-prepend
+                        span.input-group-text
+                          i.fas.fa-key
+                      input.form-control(type='password' name="confirmPassword" placeholder='*******')
+                  button.btn.btn-primary(type='submit') Register
+                small.text-muted.mt-3
+                  | If you already have an account please
+                  a(href='/login')  login
+          .goUp
+            a.fixed-bottom.up-control.rounded-circle.m-5.ml-auto(href='#mainContent')
+              i.fas.fa-arrow-up.fa-lg

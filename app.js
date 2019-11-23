@@ -5,12 +5,15 @@ const rateLimit = require('express-rate-limit');
 const bodyParser = require('body-parser');
 const viewRouter = require('./Routes/viewRouter');
 const passport = require('passport');
-const flash = require('express-flash');
+const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
 const session = require('express-session');
+const initializePassport = require('./Services/passport-config');
 //VARIABLES
 const app = express();
 const port = process.env.PORT || 3000;
-
+//  passport config
+require('./Services/passport-config')(passport);
 // Get data from config.env
 dotenv.config({
   path: './config.env'
@@ -27,24 +30,40 @@ const limiter = rateLimit({
   }
 });
 
+// Express session
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+// initialize passport
+initializePassport(passport);
+
 //MIDDLEWARE
 app.use(express.json({ limit: '10kb' }));
 app.use(limiter);
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
-/* app.use(passport.initialize());
-app.use(passport.session()); */
-app.use(flash());
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
-  })
-);
+app.use(cookieParser(process.env.COOKIE_SECRET));
+
+// passport
 app.use(passport.initialize());
 app.use(passport.session());
 
+// flash mesagges
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.message = req.session.message;
+  delete req.session.message;
+  next();
+});
+
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 //VIEW ENGINE
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
