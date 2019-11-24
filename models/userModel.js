@@ -42,7 +42,7 @@ User.init(
     },
     imagePath: {
       type: Sequelize.STRING,
-      defaultValue: '.img/User_default',
+      defaultValue: '/img/User_default.svg',
       allowNull: false
     }
   },

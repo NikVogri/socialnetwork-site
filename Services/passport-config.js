@@ -11,7 +11,6 @@ module.exports = function(passport) {
         await User.findOne({ where: { userEmail: email } })
           .then(user => {
             if (!user) {
-              console.log('email not found');
               return done(null, false, {
                 message: 'That email is not registered'
               });

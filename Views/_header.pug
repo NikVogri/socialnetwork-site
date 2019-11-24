@@ -1,5 +1,4 @@
 // START HERE
---console.log(user)
 nav.navbar.navbar-expand.navbar-dark.bg-dark.custom-search(id='#navigation')
   .container
     a.navbar-brand(href='/')
@@ -33,16 +32,15 @@ nav.navbar.navbar-expand.navbar-dark.bg-dark.custom-search(id='#navigation')
           a.nav-link.navbar-search(href='#')
             i.fas.fa-search
             |  Search
-          --console.log(user.imagePath);
           form.ml-auto.search-form.d-none(action='#')
             input.form-control(type='text' placeholder='Search...')
         li.nav-item.nav-user.rounded.dropdown
-          img.user-image.d-inline-block(src=`./img/User_default.svg` alt='user image' style='height: 30px; width: 30px;')
+          img.user-image.d-inline-block(src=`/img/User_default.svg` alt='user image' style='height: 30px; width: 30px;')
           a.nav-link.d-inline-block.dropdown-toggle.p-0.py-2(href='#' data-toggle="dropdown") #{user.displayName}
           .dropdown-menu
-            a.dropdown-item.py-2(href='/weokewkowe') Profile
-            a.dropdown-item.py-2(href='/sadsad') Settings
-            a.dropdown-item.py-2(href="/logout") Logout
+            a.dropdown-item.py-2(href=`/user/${user.userID}`) Profile
+            a.dropdown-item.py-2(href='/user/settings/account') Settings
+            a.dropdown-item.py-2(href="/logout") Logout 
         li.nav-item
           button.btn.btn-primary.btn-sm.mt-1.ml-3
             i.fas.fa-plus.fa-sm

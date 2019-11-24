@@ -5,6 +5,7 @@ const User = require('../models/userModel');
 
 exports.createNew = async (name, email, password, confirmPassword) => {
   try {
+    // create new user
     // hashing password
     await User.create({
       displayName: name,
@@ -15,12 +16,11 @@ exports.createNew = async (name, email, password, confirmPassword) => {
   } catch (err) {
     return err;
   }
-  // check if email or name is already used
-  // create new user
 };
 
 exports.checkIfEmailExists = async email => {
   try {
+    // check if email or name is already used
     const checkEmail = await User.findAll({
       where: {
         userEmail: email

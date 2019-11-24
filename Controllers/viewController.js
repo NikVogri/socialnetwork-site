@@ -18,3 +18,15 @@ exports.getLogin = (req, res, next) => {
     title: 'login'
   });
 };
+
+exports.getUser = (req, res, next) => {
+  res.status(200).render('userProfile', {
+    title: 'User profile'
+  });
+};
+
+exports.getSettings = (req, res, next) => {
+  res.status(200).render(req.params.type + 'Settings', {
+    title: 'User settings - req.params.type'
+  });
+};

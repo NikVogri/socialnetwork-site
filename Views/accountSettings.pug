@@ -1,0 +1,47 @@
+extends base
+block content
+  section#mainContent
+    .container
+      .row
+        .col-md-3.p-3
+          include _sidebar
+        .col-md-9.p-3
+          .row.p-4
+            .col-3.mt-5
+              a.text-decoration-none(href='/user/settings/account')
+                p.b-block.settingsActive.py-2.px-1
+                  strong Account
+              a.text-decoration-none(href='/user/settings/password')
+                p.b-block.text-muted.py-2.px-1
+                  strong Password
+              a.text-decoration-none(href='/user/settings/profile')
+                p.b-block.text-muted.py-2.px-1
+                  strong Profile
+            .col-6
+              h3.h1.ml-5
+                strong Account
+              include _message
+              form(action='/updateAccount' method="post")
+                .formWrapper.ml-5
+                  label.mt-5(for='text') Display Username
+                  input.form-control(type='text' name="displayName")
+                  label.mt-3(for='oldPassword') Email
+                  input.form-control(type='email' name="email")
+                  button.btn.btn-primary.mt-4
+                    i.fas.fa-save
+                    |  Save Changes
+                  a.linkHover(data-target='#deleteAccountModal' data-toggle='modal')
+                    p.text-primary.mt-3 Delete my account
+      .goUp
+        a.fixed-bottom.up-control.rounded-circle.m-5.ml-auto(href='#mainContent')
+          i.fas.fa-arrow-up.fa-lg
+  // MODALS
+  // delete account modal
+  #deleteAccountModal.modal.fade
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-body
+          h2.modal-title.h5 Are you sure you want to delete your account?
+          form(action='/deleteUser' method="post")
+            small.text-muted.mt-3 This is permanent and can not be reversed
+            button.btn.btn-danger.mt-5.d-block Delete your account
