@@ -21,45 +21,39 @@ block content
               h3.h1.ml-5
                 strong Profile
               include _message
-              form(action='/updateProfile' method="post")
+              form(action='/updateImage' method="post" enctype="multipart/form-data")
                 .formWrapper.ml-5
                   p.mt-5
                     strong Avatar
                   .avatarWrapper
-                    img.user-image.d-block(src='/img/User_default.svg' alt='User default image' style='height: 100px; width: 100px;')
+                    img.user-image.d-block.my-2(src=`${user.imagePath}` alt='User default image' style='height: 100px; width: 100px;')
                     .input-group
                       .custom-file
-                        input.custom-file-input(type='file')
+                        input.custom-file-input(type="file" accept='image/*' name="image")
                         label.custom-file-label(for='file') Choose file
-                  p.text-muted JPG only. Max size: 1MB
-                  label.mt-3.my-1.mr-2(for='select') Gender Selection
-                  select.custom-select.my-1.mr-sm-2(name='gender')
-                    option(selected='') Choose...
-                    option(value='Male') Male
-                    option(value='Female') Female
-                    option(value='Other') Other
-                  label.mt-4(for='date') Birthday
-                  .birthdayWrapper.d-flex.flex-g
-                    input.form-control(type='number' name="dateDay" placeholder='     DD      ' maxlength='2')
-                    input.form-control.mx-4(type='number' name="dateMonth" placeholder='    MM      ' maxlength='2')
-                    input.form-control(type='number' name="dateYear" placeholder='    YYYY      ' maxlength='4')
-                  label.mt-4(for='bio') About
-                  textarea.form-control(name='bio' cols='25' rows='5' maxlength="200")
-                  p.text-muted Max 200 characters
-                  button.btn.btn-primary.mt-3
+                  p.text-muted JPG/PNG only. Max size: 1MB
+                  button.btn.btn-primary.mb-5
                     i.fas.fa-save
-                    |   Save changes
+                    |   Update image
+              form.ml-5(action='/updateProfile' method="post")
+                label.mt-3.my-1.mr-2(for='select') Gender Selection
+                select.custom-select.my-1.mr-sm-2(name='gender')
+                  option(selected='') Choose...
+                  option(value='Male') Male
+                  option(value='Female') Female
+                  option(value='Other') Other
+                label.mt-4(for='date') Birthday
+                .birthdayWrapper.d-flex.flex-g
+                  input.form-control(type='number' name="dateDay" placeholder='     DD      ' maxlength='2')
+                  input.form-control.mx-4(type='number' name="dateMonth" placeholder='    MM    '   maxlength='2')
+                  input.form-control(type='number' name="dateYear" placeholder='    YYYY      '  maxlength='4')
+                label.mt-4(for='bio') About
+                textarea.form-control(name='bio' cols='25' rows='5' maxlength="200")
+                p.text-muted Max 200 characters
+                button.btn.btn-primary.mt-3
+                  i.fas.fa-save
+                  |   Save changes
 
       .goUp
         a.fixed-bottom.up-control.rounded-circle.m-5.ml-auto(href='#mainContent')
           i.fas.fa-arrow-up.fa-lg
-  // MODALS
-  // delete account modal
-  #deleteAccountModal.modal.fade
-    .modal-dialog(role='document')
-      .modal-content
-        .modal-body
-          h2.modal-title.h5 Are you sure you want to delete your account?
-          form(action='#')
-            small.text-muted.mt-3 This is permanent and can not be reversed
-            button.btn.btn-danger.mt-5.d-block Delete your account

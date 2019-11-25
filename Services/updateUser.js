@@ -72,3 +72,8 @@ exports.updateDate = async (userID, date) => {
     { where: { userID } }
   );
 };
+
+exports.updateImage = async (id, path) => {
+  User.update({ imagePath: path }, { where: { userID: id } });
+  return true;
+};

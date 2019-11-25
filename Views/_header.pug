@@ -35,13 +35,45 @@ nav.navbar.navbar-expand.navbar-dark.bg-dark.custom-search(id='#navigation')
           form.ml-auto.search-form.d-none(action='#')
             input.form-control(type='text' placeholder='Search...')
         li.nav-item.nav-user.rounded.dropdown
-          img.user-image.d-inline-block(src=`/img/User_default.svg` alt='user image' style='height: 30px; width: 30px;')
+          img.user-image.d-inline-block.mr-1.mb-1(src=`${user.imagePath}` alt='user image' style='height: 30px; width: 30px;')
           a.nav-link.d-inline-block.dropdown-toggle.p-0.py-2(href='#' data-toggle="dropdown") #{user.displayName}
           .dropdown-menu
             a.dropdown-item.py-2(href=`/user/${user.userID}`) Profile
             a.dropdown-item.py-2(href='/user/settings/account') Settings
             a.dropdown-item.py-2(href="/logout") Logout 
         li.nav-item
-          button.btn.btn-primary.btn-sm.mt-1.ml-3
+          button.btn.btn-primary.btn-sm.mt-1.ml-3(data-toggle="modal" data-target="#modalNewPost")
             i.fas.fa-plus.fa-sm
             |  New Post
+
+// New Post Modal
+.modal.fade(id="modalNewPost" role="dialog")
+  .modal-dialog(role="document")
+    .modal-content
+      .modal-header 
+        h4.modal-title Create new post
+      .modal-body
+        form(action="/createPost" method="post" enctype="multipart/form-data")
+          .form-group.mb-3
+            label(for="input") Post title
+            input.form-control(placeholder="Post title..." name="postName" required)
+          .form-group
+            .card.mb-3
+              .card-body
+                input.custom-file-input(type="file" accept='image/*' name="postImage" required)
+                label.custom-file-label(for='file') Choose file
+                h5.text-danger.mb-4 Important information before posting images
+                p.text-danger.mb-2 Select non-offensive images otherwise we WILL remove them.
+                p.text-danger.mb-1 Be respectful to others.
+          .form-group.mb-3
+            label(for="select") Select a category for this post
+            select.form-control(name="postCategory" required)
+              option Choose...
+              option Comedy
+              option WTF
+              option Gaming
+              option Animals
+              option Music
+              option NSFW
+          button.btn.btn-primary.btn-block(type="submit") Create Post  
+

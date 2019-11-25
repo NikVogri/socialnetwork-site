@@ -1,0 +1,30 @@
+extends base
+block content
+  .card
+    .card-header 
+      h4.card-title Create new post
+    .card-body
+      form(action="/createPost" type="post" enctype="multipart/form-data")
+        .form-group.mb-3
+          label(for="input") Post title
+          input.form-control(placeholder="Post title..." name="postName")
+        .form-group
+          .card.mb-3
+            .card-body
+              input.custom-file-input(type="file" accept='image/*' name="image")
+              label.custom-file-label(for='file') Choose file
+              h5.text-danger.mb-4 Important information before posting images
+              p.text-danger.mb-2 Select non-offensive images otherwise we WILL remove them.
+              p.text-danger.mb-1 Be respectful to others.
+        .form-group.mb-3
+          label(for="select") Select a category for this post
+          select.form-control(name="postCategory")
+            option Choose...
+            option Comedy
+            option WTF
+            option Gaming
+            option Animals
+            option Music
+            option NSFW
+        button.btn.btn-primary Create Post  
+
