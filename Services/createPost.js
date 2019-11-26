@@ -1,10 +1,11 @@
 const Post = require('../models/postModel');
 
-exports.createTest = () => {
+exports.createNewPost = (postName, postCategory, imagePath, userID, icon) => {
   Post.create({
-    postTitle: 'FIRST POST',
-    postOriginalPoster: 'Nick',
-    postCategory: 'NSFW',
-    postImagePath: 'front/img/posts/post1.jpg'
+    postTitle: postName,
+    postOriginalPoster: userID,
+    postCategory: postCategory,
+    postImagePath: imagePath,
+    postIcon: icon
   });
 };

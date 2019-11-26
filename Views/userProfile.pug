@@ -7,38 +7,26 @@ block content
           include _sidebar
         .col-md-9.p-3
           .card.my-3
-            .card-body.d-flex
-              img.user-image.d-inline-block(src=`${user.imagePath}` alt='#{user.displayName}' style='height: 100px; width: 100px;')
-              .profileWrapper.align-self-center.ml-3
-                h3.h1.m-0
-                  strong #{user.displayName}
-                small.text-muted.m-0
-                  | #{user.userGender}
-                  span.ml-2 #{user.userBirthday}
-            p.ml-4 #{user.userBio}
-            p.text-dark.ml-4.my-0
-              strong.profileSelection Posts
-          .card.mb-5
-            .card-body
-              p.text-muted.m-1
-                i.fas.fa-gamepad.mr-2.d-inline
-                | Gaming
-                span.text-dark  3h 
-              a(href='#')
-                h3.p-0.text-dark
-                  strong This is my best game of League Of Legends Yet!
-              a(href='http://www.google.si')
-                img.img-fluid(src='./img/53T8668.png' alt='')
-              .rating.d-block.mt-4
-                button.btn.btn-outline-secondary.px-4
-                  i.fas.fa-thumbs-up
-                button.btn.btn-outline-secondary.px-4.mx-2
-                  i.fas.fa-thumbs-down
-                button.btn.btn-outline-secondary.px-4
-                  i.fas.fa-comment
-                ul.style-none.float-right.list-unstyled.d-inline-block.mt-2
-                  li.d-inline.mr-2 432 Comments
-                  li.d-inline 32 Likes
+            if userInfo
+              .card-body.d-flex
+                img.user-image.d-inline-block(src=`${userInfo.imagePath}` alt='#{userInfo.displayName}' style='height: 100px; width: 100px;')
+                .profileWrapper.align-self-center.ml-3
+                  h3.h1.m-0
+                    strong #{userInfo.displayName}
+                  small.text-muted.m-0
+                    | #{userInfo.userGender}
+                    span.ml-2 #{userInfo.userBirthday}
+              p.ml-4 #{userInfo.userBio}
+              p.text-dark.ml-4.my-0
+                strong.profileSelection Posts
+            else
+              userWrapp.d-flex
+                img.user-image.d-inline-block(src='/img/User_default.svg' alt='User default image' style='height: 100px; width: 100px;')
+                .profileWrapper.align-self-center.ml-3
+                  h3.h1
+                    strong User not found
+                  small.text-muted.m-0
+          include _post
     .goUp
       a.fixed-bottom.up-control.rounded-circle.m-5.ml-auto(href='#mainContent')
         i.fas.fa-arrow-up.fa-lg

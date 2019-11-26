@@ -77,3 +77,7 @@ exports.updateImage = async (id, path) => {
   User.update({ imagePath: path }, { where: { userID: id } });
   return true;
 };
+
+exports.getPageUser = async id => {
+  return User.findByPk(id);
+};

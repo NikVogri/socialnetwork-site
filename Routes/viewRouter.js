@@ -7,9 +7,11 @@ const { checkAuthentication } = require('../Utils/auth');
 const router = express.Router();
 
 router.get('/login', viewController.getLogin);
-router.get('/', viewController.getIndex);
+router.get('/', postController.getAllPosts, viewController.getIndex);
 router.get('/register', viewController.getRegister);
 router.get('/logout', userController.logoutUser);
+router.get('/post/:id', postController.getOnePost, viewController.getPost);
+router.get('/randomPost', postController.getRandomPost, viewController.getPost);
 // POST
 router.post('/register', userController.createNewUser);
 router.post('/login', userController.loginUser);
@@ -17,7 +19,12 @@ router.post('/login', userController.loginUser);
 // PROTECTED ROUTES
 /* router.use(checkAuthentication); */
 // Render Views
-router.get('/user/:id', viewController.getUser);
+router.get(
+  '/user/:id',
+  userController.getUserInfo,
+  postController.getUserPost,
+  viewController.getUser
+);
 router.get('/user/settings/:type', viewController.getSettings);
 // Get from forms - User Forms
 router.post('/updateAccount', userController.updateAccount);
@@ -30,5 +37,10 @@ router.post(
   userController.resizeUserPhoto
 );
 // Get from forms - Post Forms
-router.post('/createPost', postController.createNewPost);
+router.post(
+  '/createPost',
+  postController.uploadPostImage,
+  postController.resizePostImage,
+  postController.createNewPost
+);
 module.exports = router;

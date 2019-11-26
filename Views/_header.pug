@@ -25,11 +25,11 @@ nav.navbar.navbar-expand.navbar-dark.bg-dark.custom-search(id='#navigation')
     else
       ul.navbar-nav.ml-auto
         li.nav-item
-          a.nav-link(href='#')
+          a.nav-link(href='/randomPost')
             i.fas.fa-dice
             |  Random Post
         li.nav-item.px-2
-          a.nav-link.navbar-search(href='#')
+          a.nav-link.navbar-search(href='test')
             i.fas.fa-search
             |  Search
           form.ml-auto.search-form.d-none(action='#')
@@ -68,7 +68,7 @@ nav.navbar.navbar-expand.navbar-dark.bg-dark.custom-search(id='#navigation')
           .form-group.mb-3
             label(for="select") Select a category for this post
             select.form-control(name="postCategory" required)
-              option Choose...
+              option(value="") Choose...
               option Comedy
               option WTF
               option Gaming

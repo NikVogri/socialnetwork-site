@@ -1,0 +1,73 @@
+extends base
+block content
+  section#mainContent
+    .container
+      .row
+        .col-md-3.p-3
+          include _sidebar
+        .col-md-9.p-3
+          .card.mb-5
+            .card-body
+              p.text-muted.m-1
+                i(class=`fas fa-${post.postIcon} mr-2 d-inline`)
+                | #{post.postCategory}
+                span.text-dark  #{((Date.now() - post.createdAt) / (1000*3600)).toFixed(1)}h
+                h3.p-0.text-dark.my-3
+                  strong #{post.postTitle}
+              p.text-primary.mb-2
+                strong insert random search queries
+                img.img-fluid.mt-3.w-100(src=`${post.postImagePath}` alt='Post image')
+                .rating.d-block.mb-2
+                ul.list-unstyled.d-block
+                  li.d-inline.mr-2 #{post.postLikes} Likes
+                  li.d-inline #{post.postDislikes} Dislikes
+                button.btn.btn-outline-secondary.px-4
+                  i.fas.fa-thumbs-up
+                button.btn.btn-outline-secondary.px-4.mx-2
+                  i.fas.fa-thumbs-down
+                button.btn.btn-danger.px-4
+                  | Report
+            ul.list-unstyled.d-block.d-flex.justify-content-end.ml-3
+              li.d-inline.mr-3
+                a.comments-active-head.comments-head.comments-head1(href='#')
+                  i.fas.fa-fire.fa-sm
+                  | Top
+              li.d-inline.mr-2
+                a.comments-head.comments-head2(href='#')
+                  i.fas.fa-clock
+                  |  New
+            hr.my-1.mx-2
+            if user
+              .row.mt-3.d-flex.justify-content-center
+                .col-1
+                    a(href=`/user/${user.userID}`)
+                      img.rounded-circle(src=`${user.imagePath}` alt='user image' style='height: 50px; width: 50px;') 
+                .col-10.border
+                  form(action='#')
+                    textarea.comment-text.mt-3(name='' id='' rows='4' resize='' placeholder='Enter comment...')
+                    button.btn.btn-primary.float-right.mb-2 Comment
+            else
+            #UserComments
+              .container
+                .row.p-4(id='#comment')
+                  .col-1
+                    a(href="userProfile")
+                      img.rounded-circle(src='/img/User_default.svg' alt='user image' style='height: 50px; width: 50px;')
+                  .col-10
+                    div
+                      p.m-0
+                        strong
+                          | Nickolas 
+                          span.text-muted
+                            small 1544 Upvotes
+                          span.text-muted
+                            small 3h ago
+                      p.m-0 An amazing achievement indeed! If you ever need someone to play with I&apos;m here!
+                      .commentRating.d-flex.mt-1
+                        a.text-dark(href='#')
+                          i.fas.fa-thumbs-up.mr-4
+                        a.text-dark(href='#')
+                          i.fas.fa-thumbs-down
+          .goUp
+            a.fixed-bottom.up-control.rounded-circle.m-5.ml-auto(href='#mainContent')
+              i.fas.fa-arrow-up.fa-lg

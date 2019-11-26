@@ -266,3 +266,9 @@ exports.updateProfile = async (req, res, next) => {
     next();
   }
 };
+
+exports.getUserInfo = async (req, res, next) => {
+  const { id } = req.params;
+  req.userInfo = await userUpdater.getPageUser(id);
+  next();
+};

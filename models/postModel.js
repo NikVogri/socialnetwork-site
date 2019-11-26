@@ -26,6 +26,10 @@ Post.init(
       type: Sequelize.STRING,
       allowNull: false
     },
+    postIcon: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
     postLikes: {
       type: Sequelize.INTEGER,
       allowNull: false,

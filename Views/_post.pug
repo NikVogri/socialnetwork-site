@@ -1,0 +1,23 @@
+
+for post in posts
+  .card.mb-5
+    .card-body.overflow-hidden
+      p.text-muted.m-1.mb-2
+        i(class=`fas fa-${post.postIcon} mr-2 d-inline`)
+        | #{post.postCategory}
+        span.text-dark  #{((Date.now() - post.createdAt) / (1000*3600)).toFixed(1)}h
+      a(href=`/post/${post.postID}`)
+        h3.p-0.text-dark.mb-4
+          strong #{post.postTitle}
+      a(href=`/post/${post.postID}`)
+        img.img-fluid(src=`${post.postImagePath}` alt='Post image')
+      .rating.d-block.mt-4
+        button.btn.btn-outline-secondary.px-4
+          i.fas.fa-thumbs-up
+        button.btn.btn-outline-secondary.px-4.mx-2
+          i.fas.fa-thumbs-down
+        button.btn.btn-outline-secondary.px-4
+          i.fas.fa-comment
+        ul.style-none.float-right.list-unstyled.d-inline-block.mt-2
+          li.d-inline #{post.postLikes} Likes
+          li.d-inline   #{post.postDislikes} Dislikes

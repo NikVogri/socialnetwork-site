@@ -38,6 +38,7 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pug": "^2.0.4",
+    "rand-numb-gen": "^1.0.2",
     "sequelize": "^5.21.2",
     "sharp": "^0.23.3"
   },
