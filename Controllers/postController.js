@@ -99,4 +99,5 @@ exports.getOnePost = async (req, res, next) => {
 
 exports.getRandomPost = async (req, res, next) => {
   req.getPost = await postUpdater.getRandom();
+  next();
 };

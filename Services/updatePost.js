@@ -15,10 +15,11 @@ exports.getUserPosts = async id => {
 };
 
 exports.getOnePost = async id => {
-  return Post.findByPk(id);
+  return await Post.findByPk(id);
 };
 
 exports.getRandom = async () => {
   const posts = await Post.findAll();
-  return await Post.findByPk(RNG.generateOne(posts.length, 1));
+  const genNumber = RNG.generateOne(posts.length, 1);
+  return await Post.findByPk(genNumber[0]);
 };

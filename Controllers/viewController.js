@@ -39,7 +39,10 @@ exports.getSettings = (req, res, next) => {
 
 exports.getPost = (req, res, next) => {
   const post = req.getPost;
-  const user = req.user;
+  let user;
+  if (req.user) {
+    user = req.user;
+  }
   res.status(200).render('fullPost', {
     title: `${post.postTitle}`,
     post,

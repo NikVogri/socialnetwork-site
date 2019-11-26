@@ -11,7 +11,7 @@ block content
               p.text-muted.m-1
                 i(class=`fas fa-${post.postIcon} mr-2 d-inline`)
                 | #{post.postCategory}
-                span.text-dark  #{((Date.now() - post.createdAt) / (1000*3600)).toFixed(1)}h
+                span.text-muted  - #{((Date.now() - post.createdAt) / (1000*3600)).toFixed(1)}h ago
                 h3.p-0.text-dark.my-3
                   strong #{post.postTitle}
               p.text-primary.mb-2
