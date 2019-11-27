@@ -9,6 +9,10 @@ const filter = (req, file, cb) => {
   if (file.mimetype.startsWith('image')) {
     cb(null, true);
   } else {
+    req.session.message = {
+      type: 'danger',
+      message: 'No correct image file selected'
+    };
     cb(null, false);
   }
 };
@@ -33,7 +37,7 @@ exports.resizePostImage = async (req, res, next) => {
   req.file.filename = `post-${userID}-${Date.now()}.jpeg`;
   await sharp(req.file.buffer)
     .toFormat('jpeg')
-    .jpeg({ quality: 90 })
+    .jpeg({ quality: 50 })
     .toFile(`Front/img/posts/${req.file.filename}`);
   // update db with new image path
   req.file.imagePath = `/img/posts/${req.file.filename}`;
@@ -63,6 +67,9 @@ exports.createNewPost = async (req, res, next) => {
       break;
     case 'NSFW':
       icon = 'kiss-wink-heart';
+      break;
+    case 'Picture':
+      icon = 'camera';
       break;
   }
   await postCreator.createNewPost(
@@ -99,5 +106,20 @@ exports.getOnePost = async (req, res, next) => {
 
 exports.getRandomPost = async (req, res, next) => {
   req.getPost = await postUpdater.getRandom();
+  next();
+};
+
+exports.getTypePosts = async (req, res, next) => {
+  const { type } = req.params;
+  switch (type) {
+    case 'top':
+      req.posts = await postUpdater.getTopPosts();
+      req.typeSearch = 'Top';
+      break;
+    case 'new':
+      req.posts = await postUpdater.getNewPosts();
+      req.typeSearch = 'New';
+      break;
+  }
   next();
 };

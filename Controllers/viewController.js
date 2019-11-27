@@ -2,9 +2,11 @@ const User = require('../models/userModel');
 exports.getIndex = (req, res, next) => {
   // call services for posts & user information
   const { posts } = req;
+  const { typeSearch } = req;
   res.status(200).render('Frontpage', {
     title: 'Homepage',
-    posts
+    posts,
+    typeSearch
   });
 };
 

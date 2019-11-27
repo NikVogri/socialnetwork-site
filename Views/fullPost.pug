@@ -16,7 +16,8 @@ block content
                   strong #{post.postTitle}
               p.text-primary.mb-2
                 strong insert random search queries
-                img.img-fluid.mt-3.w-100(src=`${post.postImagePath}` alt='Post image')
+                a(href=`${post.postImagePath}` data-toggle="lightbox")
+                  img.img-fluid.mt-3.w-100(src=`${post.postImagePath}` alt='Post image')
                 .rating.d-block.mb-2
                 ul.list-unstyled.d-block
                   li.d-inline.mr-2 #{post.postLikes} Likes
@@ -69,5 +70,5 @@ block content
                         a.text-dark(href='#')
                           i.fas.fa-thumbs-down
           .goUp
-            a.fixed-bottom.up-control.rounded-circle.m-5.ml-auto(href='#mainContent')
+            a.fixed-bottom.up-control.rounded-circle.m-5.ml-auto.setZindex(href='#mainContent')
               i.fas.fa-arrow-up.fa-lg

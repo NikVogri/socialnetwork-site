@@ -5,6 +5,7 @@ html(lang="eng")
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible' content='ie=edge')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css' integrity='sha256-HAaDW5o2+LelybUhfuk0Zh2Vdk8Y2W2UeKmbaXhalfA=' crossorigin='anonymous')
     link(rel='stylesheet' href='/css/style.css')
   include _header
   block content
@@ -74,6 +75,8 @@ script(src='https://kit.fontawesome.com/2046538412.js' crossorigin='anonymous')
 script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
 script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js' integrity='sha256-Y1rRlwTzT5K5hhCBfAFWABD4cU13QGuRN6P5apfWzVs=' crossorigin='anonymous')
+
 script.
   $('.navbar-search').on('click', function() {
   $('.search-form').toggleClass('d-none');
@@ -84,5 +87,19 @@ script.
   $('#menu-main > li > .dropdown-toggle').click(function () {
     window.location = $(this).attr('href');
   });
+  if ($('.goUp').hasClass('d-none')) {
+      console.log('yes');
+      $('.goUp').removeClass('d-none');
+    };
+  $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+      $('.goUp').addClass('d-none');
+  });
+  $('.sections').on('click', function(e) {
+    $('*').removeClass('sidebar-active');
+    const target = $(e.target);
+    target.addClass('sidebar-active');
+  });
 
-  
+
