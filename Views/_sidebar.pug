@@ -1,32 +1,32 @@
 .sections
-  a.d-block.sidebar-custom.py-2.pl-2.lead.sidebar-active(href='/top')
+  a( class=`d-block sidebar-custom py-2 pl-2 lead ${typeSearch === 'Top' ? 'sidebar-active' : ''}` href='/top')
     i.fas.fa-fire
     strong  Top
-  a.d-block.sidebar-custom.py-2.pl-2.lead(href='/new')
+  a(class= `d-block sidebar-custom py-2 pl-2 lead ${typeSearch === 'New' ? 'sidebar-active' : ''}` href='/new')
     i.fas.fa-clock
     strong  New
   p.d-block.pl-2.py-2.text-secondary.m-0
     strong
       strong  Categories
-  a.d-block.sidebar-custom.py-2.pl-2.lead.text-muted(href='#')
+  a(class= `d-block sidebar-custom py-2 pl-2 lead text-muted ${typeSearch === 'comedy' ? 'sidebar-active' : ''}` href='/category/comedy')
     i.fas.fa-laugh
     strong  Comedy
-  a.d-block.sidebar-custom.py-2.pl-2.lead.text-muted(href='#')
+  a(class= `d-block sidebar-custom py-2 pl-2 lead text-muted ${typeSearch === 'picture' ? 'sidebar-active' : ''}` href='/category/picture')
     i.fas.fa-camera
     strong  Picture
-  a.d-block.sidebar-custom.py-2.pl-2.lead.text-muted(href='#')
+  a(class= `d-block sidebar-custom py-2 pl-2 lead text-muted ${typeSearch === 'wtf' ? 'sidebar-active' : ''}` href='/category/WTF')
     i.fas.fa-surprise
     strong  WTF
-  a.d-block.sidebar-custom.py-2.pl-2.lead.text-muted(href='#')
+  a(class= `d-block sidebar-custom py-2 pl-2 lead text-muted ${typeSearch === 'gaming' ? 'sidebar-active' : ''}` href='/category/gaming')
     i.fas.fa-gamepad
     strong  Gaming
-  a.d-block.sidebar-custom.py-2.pl-2.lead.text-muted(href='#')
+  a(class= `d-block sidebar-custom py-2 pl-2 lead text-muted ${typeSearch === 'animals' ? 'sidebar-active' : ''}` href='/category/animals')
     i.fas.fa-hippo
     strong  Animals
-  a.d-block.sidebar-custom.py-2.pl-2.lead.text-muted(href='#')
+  a(class= `d-block sidebar-custom py-2 pl-2 lead text-muted ${typeSearch === 'music' ? 'sidebar-active' : ''}` href='/category/music')
     i.fas.fa-music
     strong  Music
-  a.d-block.sidebar-custom.py-2.pl-2.lead.text-muted(href='#')
+  a(class= `d-block sidebar-custom py-2 pl-2 lead text-muted ${typeSearch === 'NSFW' ? 'sidebar-active' : ''}` href='/category/NSFW')
     i.fas.fa-kiss-wink-heart
     strong  NSFW
   p.d-block.pl-2.py-2.text-secondary.m-0

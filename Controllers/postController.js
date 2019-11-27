@@ -123,3 +123,10 @@ exports.getTypePosts = async (req, res, next) => {
   }
   next();
 };
+
+exports.getCategory = async (req, res, next) => {
+  const { category } = req.params;
+  req.typeSearch = `${category}`;
+  req.posts = await postUpdater.getCategoryPosts(category);
+  next();
+};

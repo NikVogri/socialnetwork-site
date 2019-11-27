@@ -13,6 +13,11 @@ router.get('/logout', userController.logoutUser);
 router.get('/post/:id', postController.getOnePost, viewController.getPost);
 router.get('/randomPost', postController.getRandomPost, viewController.getPost);
 router.get('/:type', postController.getTypePosts, viewController.getIndex);
+router.get(
+  '/category/:category',
+  postController.getCategory,
+  viewController.getIndex
+);
 // POST
 router.post('/register', userController.createNewUser);
 router.post('/login', userController.loginUser);

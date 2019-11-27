@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const Post = require('../models/postModel');
-const RNG = require('rand-numb-gen');
 exports.getPosts = async () => {
   return await Post.findAll({
     order: Sequelize.literal('rand()')
@@ -20,9 +19,7 @@ exports.getOnePost = async id => {
 };
 
 exports.getRandom = async () => {
-  const posts = await Post.findAll();
-  const genNumber = RNG.generateOne(posts.length, 1);
-  return await Post.findByPk(genNumber[0]);
+  return await Post.findOne({ order: Sequelize.literal('rand()') });
 };
 
 exports.getTopPosts = async () => {
@@ -34,5 +31,14 @@ exports.getTopPosts = async () => {
 exports.getNewPosts = async () => {
   return await Post.findAll({
     order: [['createdAt', 'ASC']]
+  });
+};
+
+exports.getCategoryPosts = async category => {
+  console.log(category.charAt(0).toUpperCase() + category.slice(1));
+  return await Post.findAll({
+    where: {
+      postCategory: category.charAt(0).toUpperCase() + category.slice(1)
+    }
   });
 };

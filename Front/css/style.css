@@ -17,11 +17,12 @@
   text-decoration: none;
 }
 #mainContent .container .sidebar-custom:hover {
-  background: rgba(108, 117, 125, 0.1);
+  background: rgba(1, 127, 238, 0.2);
 }
 
 #mainContent .container .sidebar-active {
-  background: rgba(108, 117, 125, 0.1);
+  background: rgba(1, 127, 238, 0.5);
+  color: #fff !important;
 }
 
 #mainContent .up-control {
