@@ -7,7 +7,11 @@ block content
         .col-md-3.p-3
           include _sidebar
         .col-md-9.p-3
-          include _post.pug
+          if posts.length >= 1
+            include _post
+          else
+            .wrapper
+              h3.mt-5.text-muted Looks like there's nothing here... 
     .goUp
       a.fixed-bottom.up-control.rounded-circle.m-5.ml-auto(href='#mainContent')
         i.fas.fa-arrow-up.fa-lg

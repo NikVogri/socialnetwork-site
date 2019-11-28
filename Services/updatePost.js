@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 const Post = require('../models/postModel');
+const RNG = require('rand-numb-gen');
 exports.getPosts = async () => {
   return await Post.findAll({
     order: Sequelize.literal('rand()')
@@ -19,7 +21,13 @@ exports.getOnePost = async id => {
 };
 
 exports.getRandom = async () => {
-  return await Post.findOne({ order: Sequelize.literal('rand()') });
+  const posts = await Post.findAll();
+  const random = RNG.generateOne(posts.length, 1);
+  return await Post.findOne({
+    where: {
+      postID: random[0]
+    }
+  });
 };
 
 exports.getTopPosts = async () => {
@@ -35,10 +43,21 @@ exports.getNewPosts = async () => {
 };
 
 exports.getCategoryPosts = async category => {
-  console.log(category.charAt(0).toUpperCase() + category.slice(1));
   return await Post.findAll({
     where: {
       postCategory: category.charAt(0).toUpperCase() + category.slice(1)
+    }
+  });
+};
+
+exports.getQueriedPosts = async query => {
+  return await Post.findAll({
+    where: {
+      postQuery: Sequelize.where(
+        Sequelize.fn('LOWER', Sequelize.col('postQuery')),
+        'LIKE',
+        `%${query}%`
+      )
     }
   });
 };

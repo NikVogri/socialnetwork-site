@@ -10,11 +10,12 @@ nav.navbar.navbar-expand.navbar-dark.bg-dark.custom-search(id='#navigation')
             i.fas.fa-dice
             |  Random Post
         li.nav-item.px-2
-          a.nav-link.navbar-search(href='#')
+          p.nav-link.navbar-search.m-0.linkHover 
             i.fas.fa-search
             |  Search
-          form.ml-auto.search-form.d-none(action='#')
-            input.form-control(type='text' placeholder='Search...')
+          form.ml-auto.search-form.d-none(action='/search/posts' method="post")
+            input.form-control(type='text' placeholder='Search...' name='query')
+            button.d-none
         li.nav-item
           a.nav-link(href='#' data-toggle='modal' data-target='#loginModal')
             i.fas.fa-user
@@ -29,11 +30,12 @@ nav.navbar.navbar-expand.navbar-dark.bg-dark.custom-search(id='#navigation')
             i.fas.fa-dice
             |  Random Post
         li.nav-item.px-2
-          a.nav-link.navbar-search(href='test')
+          p.nav-link.navbar-search.m-0.linkHover 
             i.fas.fa-search
             |  Search
-          form.ml-auto.search-form.d-none(action='#')
-            input.form-control(type='text' placeholder='Search...')
+          form.ml-auto.search-form.d-none(action='/search/posts' method="post")
+            input.form-control(type='text' placeholder='Search...' name='query')
+            button.d-none
         li.nav-item.nav-user.rounded.dropdown
           img.user-image.d-inline-block.mr-1.mb-1(src=`${user.imagePath}` alt='user image' style='height: 30px; width: 30px;')
           a.nav-link.d-inline-block.dropdown-toggle.p-0.py-2(href='#' data-toggle="dropdown") #{user.displayName}
@@ -76,5 +78,8 @@ nav.navbar.navbar-expand.navbar-dark.bg-dark.custom-search(id='#navigation')
               option Animals
               option Music
               option NSFW
+          .form-group.mb-4
+            label(for="input") Search Queries
+            input.form-control(placeholder="Queries..." name="postQuery")
           button.btn.btn-primary.btn-block(type="submit") Create Post  
 

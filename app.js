@@ -1,4 +1,9 @@
-const dotenv = require('dotenv');
+// Set node enviroment
+const env = 'development';
+if (env !== 'production') {
+  require('dotenv').config();
+}
+// Imports
 const express = require('express');
 const path = require('path');
 const rateLimit = require('express-rate-limit');
@@ -9,15 +14,11 @@ const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 const session = require('express-session');
 const initializePassport = require('./Services/passport-config');
+
 //VARIABLES
 const app = express();
-const port = process.env.PORT || 3000;
 //  passport config
 require('./Services/passport-config')(passport);
-// Get data from config.env
-dotenv.config({
-  path: './config.env'
-});
 
 // Limit user requests
 const limiter = rateLimit({
@@ -73,6 +74,7 @@ app.use(express.static(path.join(__dirname, 'front')));
 app.use('/', viewRouter);
 
 // START SERVER
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server started on port: ${port}`);
 });

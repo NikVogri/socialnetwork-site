@@ -43,6 +43,10 @@ Post.init(
     postImagePath: {
       type: Sequelize.STRING,
       allowNull: false
+    },
+    postQuery: {
+      type: Sequelize.STRING,
+      allowNull: true
     }
   },
   {

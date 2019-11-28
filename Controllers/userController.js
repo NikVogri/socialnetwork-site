@@ -233,15 +233,11 @@ exports.updateProfile = async (req, res, next) => {
   };
   const { userID } = req.user;
   // check if there is any data provided in request.
-  console.log(req.file);
   if (
     gender !== 'Choose...' ||
     bio !== '' ||
-    (date.day !== '' && date.month !== '' && date.year !== '') ||
-    profileImage !== null
+    (date.day !== '' && date.month !== '' && date.year !== '')
   ) {
-    if (profileImage !== null) {
-    }
     if (gender !== 'Choose...') {
       await userUpdater.updateGender(userID, gender);
     }
@@ -264,6 +260,18 @@ exports.updateProfile = async (req, res, next) => {
     };
     res.status(400).redirect('back');
     next();
+  }
+};
+
+exports.updateImage = async (req, res, next) => {
+  if (req.file) {
+    next();
+  } else {
+    req.session.message = {
+      type: 'danger',
+      message: 'Select an image'
+    };
+    res.status(400).redirect('back');
   }
 };
 

@@ -44,9 +44,9 @@ block content
                   option(value='Other') Other
                 label.mt-4(for='date') Birthday
                 .birthdayWrapper.d-flex.flex-g
-                  input.form-control(type='number' name="dateDay" placeholder='     DD      ' maxlength='2')
-                  input.form-control.mx-4(type='number' name="dateMonth" placeholder='    MM    '   maxlength='2')
-                  input.form-control(type='number' name="dateYear" placeholder='    YYYY      '  maxlength='4')
+                  input.form-control(type='number' name="dateDay" placeholder='     DD      ' maxlength='2' max="31")
+                  input.form-control.mx-4(type='number' name="dateMonth" placeholder='    MM    '   maxlength='2' max="12")
+                  input.form-control(type='number' name="dateYear" placeholder='    YYYY      '  maxlength='4' max="9990")
                 label.mt-4(for='bio') About
                 textarea.form-control(name='bio' cols='25' rows='5' maxlength="200")
                 p.text-muted Max 200 characters

@@ -1,10 +1,4 @@
-const dotenv = require('dotenv');
 const Sequelize = require('sequelize');
-
-// Get data from config.env
-dotenv.config({
-  path: './config.env'
-});
 
 const sequelize = new Sequelize(
   process.env.DB_NAME,

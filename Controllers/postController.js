@@ -45,7 +45,7 @@ exports.resizePostImage = async (req, res, next) => {
 };
 
 exports.createNewPost = async (req, res, next) => {
-  const { postName, postCategory } = req.body;
+  const { postName, postCategory, postQuery } = req.body;
   const { userID } = req.user;
   const { imagePath } = req.file;
   let icon;
@@ -77,7 +77,8 @@ exports.createNewPost = async (req, res, next) => {
     postCategory,
     imagePath,
     userID,
-    icon
+    icon,
+    postQuery
   );
   res.status(200).redirect('/'); // change this to the actual post.
   next();
@@ -85,7 +86,6 @@ exports.createNewPost = async (req, res, next) => {
 
 exports.getAllPosts = async (req, res, next) => {
   req.posts = await postUpdater.getPosts();
-
   res.status(200);
   next();
 };
@@ -100,12 +100,13 @@ exports.getUserPost = async (req, res, next) => {
 
 exports.getOnePost = async (req, res, next) => {
   const { id } = req.params;
-  req.getPost = await postUpdater.getOnePost(id);
+  req.post = await postUpdater.getOnePost(id);
   next();
 };
 
 exports.getRandomPost = async (req, res, next) => {
-  req.getPost = await postUpdater.getRandom();
+  req.post = await postUpdater.getRandom();
+  req.postID = req.post.postID;
   next();
 };
 
@@ -128,5 +129,11 @@ exports.getCategory = async (req, res, next) => {
   const { category } = req.params;
   req.typeSearch = `${category}`;
   req.posts = await postUpdater.getCategoryPosts(category);
+  next();
+};
+
+exports.searchQueryPost = async (req, res, next) => {
+  const { query } = req.body;
+  req.posts = await postUpdater.getQueriedPosts(query);
   next();
 };
