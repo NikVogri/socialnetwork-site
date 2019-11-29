@@ -41,8 +41,11 @@ exports.getSettings = (req, res, next) => {
 
 exports.getPost = (req, res, next) => {
   const { post } = req;
-  const { comments } = req;
   let user;
+  let comments;
+  if (req.comments) {
+    comments = req.comments;
+  }
   if (req.user) {
     user = req.user;
   }

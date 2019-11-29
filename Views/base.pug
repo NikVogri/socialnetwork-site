@@ -26,8 +26,8 @@ html(lang="eng")
               input.form-control(type='password'  name="password" placeholder='*******')
             button.btn.btn-primary(type="submit") Login
           small.text-muted.mt-2
-            | If you do not have an account please
-            a(href='#SIGNUP#') register
+            | If you do not have an account please 
+            a(href='/register') register
   // Register
   #registerModal.modal.fade
     .modal-dialog(role='document')
@@ -67,8 +67,8 @@ html(lang="eng")
                 input.form-control(type='password' name="confirmPassword" placeholder='*******')
             button.btn.btn-primary(type='submit') Register
           small.text-muted.mt-3
-            | If you already have an account please
-            a(href='#SIGNUP#') login
+            | If you already have an account please 
+            a(href='/login') login
 
   // END HERE
 script(src='https://kit.fontawesome.com/2046538412.js' crossorigin='anonymous')
@@ -88,7 +88,6 @@ script.
     window.location = $(this).attr('href');
   });
   if ($('.goUp').hasClass('d-none')) {
-      console.log('yes');
       $('.goUp').removeClass('d-none');
     };
   $(document).on('click', '[data-toggle="lightbox"]', function(event) {
@@ -101,5 +100,6 @@ script.
     const target = $(e.target);
     target.addClass('sidebar-active');
   });
+
 
 

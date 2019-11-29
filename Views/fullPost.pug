@@ -51,20 +51,20 @@ block content
                   for comment in comments
                     .row.p-4(id='#comment')
                       .col-1
-                        a(href=`/user/${comment.userID}`)
-                          img.rounded-circle(src='/img/User_default.svg' alt='user image' style='height: 50px; width: 50px;')
+                        a(href=`/user/${comment.posterID}`)
+                          img.rounded-circle(src=`${comment.userImage}` alt='user image' style='height: 50px; width: 50px;')
                       .col-10
                         div
                           p.m-0
                             strong
-                              | Nickolas 
+                              | #{comment.posterName}
                               span.text-muted
-                                small #{comment.commentLikes}
+                                small  #{comment.commentLikes}
                               span.text-muted
-                                small #{((Date.now() - post.createdAt) / (1000*3600)).toFixed(1)}h ago
+                                small #{((Date.now() - comment.createdAt) / (1000*3600)).toFixed(1)}h ago
                           p.m-0 #{comment.commentBody}
-                  else
-                    h5.text-muted.p-5 No comments yet, be the first one to comment!
+                else
+                  h5.text-muted.p-5 No comments yet, be the first one to comment!
           .goUp
             a.fixed-bottom.up-control.rounded-circle.m-5.ml-auto.setZindex(href='#mainContent')
               i.fas.fa-arrow-up.fa-lg

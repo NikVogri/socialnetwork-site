@@ -71,6 +71,24 @@ exports.createNewPost = async (req, res, next) => {
     case 'Picture':
       icon = 'camera';
       break;
+    case 'Wallpaper':
+      icon = 'image';
+      break;
+    case 'Sports':
+      icon = 'futbol';
+      break;
+    case 'Horror':
+      icon = 'surprise';
+      break;
+    case 'History':
+      icon = 'landmark';
+      break;
+    case 'Movie':
+      icon = 'film';
+      break;
+    case 'DIY':
+      icon = 'briefcase';
+      break;
   }
   await postCreator.createNewPost(
     postName,
