@@ -38,12 +38,11 @@ router.post(
   postController.searchQueryPost,
   viewController.getIndex
 );
-// Comment Routes
-router.post('/createComment/:post/:user', commentController.createComment);
 //////////////////////////////////////////////////////////////////////
 // PROTECTED ROUTES
-/* router.use(checkAuthentication); */
-
+router.use(checkAuthentication);
+// Comment Routes
+router.post('/createComment/:post/:user', commentController.createComment);
 // Render Views
 router.get(
   '/user/:id',

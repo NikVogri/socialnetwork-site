@@ -12,15 +12,10 @@ if posts
         a(href=`/post/${post.postID}`)
           img.img-fluid(src=`${post.postImagePath}` alt='Post image')
         .rating.d-block.mt-4
-          button.btn.btn-outline-secondary.px-4
-            i.fas.fa-thumbs-up
-          button.btn.btn-outline-secondary.px-4.mx-2
-            i.fas.fa-thumbs-down
           a.btn.btn-outline-secondary.px-4(href=`/post/${post.postID}`)
             i.fas.fa-comment
           ul.style-none.float-right.list-unstyled.d-inline-block.mt-2
-            li.d-inline #{post.postLikes} Likes
-            li.d-inline   #{post.postDislikes} Dislikes
+            li.d-inline #{post.postComments} Comments
 else 
   .wrapper
     h3.mt-5.text-muted Looks like there's nothing here... 

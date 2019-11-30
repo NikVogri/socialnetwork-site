@@ -19,15 +19,6 @@ block content
                 a(href=`${post.postImagePath}` data-toggle="lightbox")
                   img.img-fluid.mt-3.w-100(src=`${post.postImagePath}` alt='Post image')
                 .rating.d-block.mb-2
-                ul.list-unstyled.d-block
-                  li.d-inline.mr-2 #{post.postLikes} Likes
-                  li.d-inline #{post.postDislikes} Dislikes
-                button.btn.btn-outline-secondary.px-4
-                  i.fas.fa-thumbs-up
-                button.btn.btn-outline-secondary.px-4.mx-2
-                  i.fas.fa-thumbs-down
-                button.btn.btn-danger.px-4
-                  | Report
             ul.list-unstyled.d-block.d-flex.justify-content-end.ml-3.mb-0
               li.d-inline.mr-3
                 p.comments-active-head.comments-head.comments-head1.text-primary

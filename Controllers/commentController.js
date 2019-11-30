@@ -18,6 +18,7 @@ exports.getAllComments = async (req, res, next) => {
       await new Promise((resolve, reject) => {
         comments.forEach(async (el, index, array) => {
           let user = await commentUpdater.getUser(el.originalPosterID);
+          el.commentsAmmount = comments.length;
           el.posterName = user.displayName;
           el.posterID = user.userID;
           el.userImage = user.imagePath;
@@ -34,6 +35,7 @@ exports.getAllComments = async (req, res, next) => {
       await new Promise((resolve, reject) => {
         comments.forEach(async (el, index, array) => {
           let user = await commentUpdater.getUser(el.originalPosterID);
+          el.commentsAmmount = comments.length;
           el.posterName = user.displayName;
           el.posterID = user.userID;
           el.userImage = user.imagePath;

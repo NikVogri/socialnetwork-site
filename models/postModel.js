@@ -30,12 +30,7 @@ Post.init(
       type: Sequelize.STRING,
       allowNull: false
     },
-    postLikes: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-      defaultValue: 0
-    },
-    postDislikes: {
+    postComments: {
       type: Sequelize.INTEGER,
       allowNull: false,
       defaultValue: 0
